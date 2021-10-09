@@ -1,0 +1,246 @@
+/* ====== Global variable ======*/
+:root {
+  /* of primary color*/
+  --clr-primary-1: rgb(2, 46, 87);
+  --clr-primary-2: rgb(0, 90, 141);
+  --clr-primary-3: rgb(255, 150, 173);
+  --clr-primary-4: rgb(255, 245, 253);
+  --clr-primary-5:  rgb(157, 157, 157);
+  --clr-light-opacity-1: rgb(0, 90, 141, 0.4);
+  
+  --transition: all 0.3s linear;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/* ====== Global format ======*/
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--clr-primary-1);
+    background-color: var(--clr-primary-4) ;
+}
+
+h2 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+
+h3 {
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+p{
+    margin-top: 15px;
+}
+
+button {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+ul, li {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* ====== Element formats ======*/
+
+/* navbar */
+nav {
+    position: fixed;
+    top:0;
+    background-color: var(--clr-primary-4) ;
+    height: 80px;
+    width: 100vw;
+  
+}
+
+.nav-display {
+    display: none;
+    z-index: -99;
+}
+
+#navbar {
+    margin: auto;
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-logo {
+    flex: 2;
+   
+    color: var(--clr-primary-2);
+    opacity: 1;
+    font-weight: 700;
+}
+
+.nav-links {
+    flex: 1;
+}
+.nav-links ul {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    justify-content: space-between;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--clr-primary-2)
+}
+
+/* ====> main <==== */
+/* introduciton section */
+#intro-sec {
+    margin:auto;
+    padding-top: 200px;
+    height: 100vh;
+    width: 90vw;
+    background-image: url(./img/cat-title.jpg);
+    background-size: cover;
+}
+
+.intro-sec-container {
+    margin: auto;
+    background: var(--clr-light-opacity-1);
+    width: 1000px;
+    height: 250px;
+    text-align: center;
+    color: var(--clr-primary-3);
+}
+
+.intro-sec-container h1{
+    font-size: 6rem;
+    text-transform: capitalize;
+}
+
+.intro-sec-title p {
+    font-size: 2rem;
+}
+
+/* facts section */
+
+#facts-sec {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.facts-sec-container {
+    margin: auto;
+    height: 460px;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px; 
+}
+
+.facts-sec-img-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.facts-sec-description {
+    display: flex;
+    flex-direction: column;
+}
+.f-s-d-text {
+    flex: 4;
+}
+
+.f-s-d-button {
+    flex:1;
+}
+
+.f-s-d-button button {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    height: 80%;
+    width: 50%;
+}
+
+/* gallery section */
+#gallery-sec {
+    margin: auto;
+    width: 90vw;
+    text-align: center;
+}
+
+.c-g-c-imgs {
+    width: 100%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 60px;
+}
+
+.c-g-c-img-container {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.c-g-c-img-container img{
+    flex:9;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.c-g-c-img-container p {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+/* about me section */
+#aboutme-sec {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.aboutme-sec-container {
+    margin: auto;
+    height: 460px;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px; 
+
+}
+
+.am-s-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-mark {
+    font-size: 3.5rem;
+}
+
+.am-s-img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
