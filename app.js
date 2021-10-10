@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 50) {
+  if (window.pageYOffset > 20) {
     navbar.classList.add("nav-display");
   } else {
     navbar.classList.remove("nav-display");

@@ -1,16 +1,21 @@
 /* ====== Global variable ======*/
 :root {
   /* of primary color*/
+/* #022e57 */
+/* #005a8d */
+/* #ff96ad */
+/* #fff5fd */
+  
   --clr-primary-1: rgb(2, 46, 87);
-  --clr-primary-2: rgb(0, 90, 141);
-  --clr-primary-3: rgb(255, 150, 173);
+  --clr-primary-2: rgb(0, 90, 141); 
+  --clr-primary-3: rgb(255, 150, 173); 
   --clr-primary-4: rgb(255, 245, 253);
   --clr-primary-5:  rgb(157, 157, 157);
   --clr-light-opacity-1: rgb(0, 90, 141, 0.4);
   --primary-font:  'Gloria Hallelujah', cursive;
   --transition: all 0.3s linear;
   --light-shadow: 10px 6px 8px var(--clr-primary-3);
-  --dark-shadow: 10px 6px 8px var(--clr-primary-2);
+  --dark-shadow: 0px 0px 20px var(--clr-primary-2);
 }
 /* ====== Global format ======*/
 * {
@@ -138,21 +143,24 @@ nav {
 /* ====> main <==== */
 /* introduciton section */
 #intro-sec {
-    margin:auto;
-    padding-top: 200px;
-    height: 100vh;
-    width: 100vw;
-    background-image: url(./img/cat-title.jpg);
+    margin: 120px auto 0px auto;
+    height: 80vh;
+    width: 90vw;
+    background-image: url(./img/intro-bg.png);
     background-size: cover;
+    box-shadow: var(--dark-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .intro-sec-container {
-    margin: auto;
     background: var(--clr-light-opacity-1);
-    width: 90%;
-    height: 250px;
+    width: 80%;
+    height: 50%;
     text-align: center;
     color: var(--clr-primary-3);
+
 }
 
 .intro-sec-container h1{
@@ -163,7 +171,7 @@ nav {
 }
 
 .intro-sec-container p {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 /* facts section */
