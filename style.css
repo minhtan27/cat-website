@@ -22,7 +22,7 @@
 body {
     font-family: var(--primary-font);
     line-height: 1.5;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: var(--clr-primary-1);
     background-color: var(--clr-primary-4) ;
@@ -176,17 +176,21 @@ nav {
 
 .facts-sec-container {
     margin: auto;
-    height: 460px;
+    height: 500px;
     width: 90vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 50px; 
 }
+.facts-sec-img-container {
+    height: 500px;
+
+}
 
 .facts-sec-img-container img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit:contain;
 }
 .facts-sec-description {
     display: flex;
@@ -198,6 +202,7 @@ nav {
 
 .f-s-d-button {
     flex:1;
+  
 }
 
 .f-s-d-button button {
@@ -212,11 +217,16 @@ nav {
     border-radius: 50px;
     box-shadow: var(--light-shadow);
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .f-s-d-button button:hover {
     background: var(--clr-primary-1);
-    color: var(--clr-primary-4);
+    color: var(--clr-primary-3);
+}
+
+.f-s-d-button-onclick{
+    transform: scale(1.05);
 }
 
 /* gallery section */
@@ -241,6 +251,8 @@ nav {
     width: 100%;
     display: flex;
     flex-direction: column;
+    border-radius: 10%;
+    overflow: hidden;
 }
 
 .c-g-c-img-container img{
@@ -285,6 +297,10 @@ nav {
     font-size: 3.5rem;
 }
 
+.am-s-img-container { 
+     border-radius: 10%;
+    overflow: hidden;
+}
 .am-s-img-container img {
     height: 100%;
     width: 100%;
