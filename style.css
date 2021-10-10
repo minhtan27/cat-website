@@ -7,11 +7,10 @@
   --clr-primary-4: rgb(255, 245, 253);
   --clr-primary-5:  rgb(157, 157, 157);
   --clr-light-opacity-1: rgb(0, 90, 141, 0.4);
-  --primary-font:  'Poppins', sans-serif;
-  --brand-font: 'Amatic SC', cursive;
+  --primary-font:  'Gloria Hallelujah', cursive;
   --transition: all 0.3s linear;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --light-shadow: 10px 6px 8px var(--clr-primary-3);
+  --dark-shadow: 10px 6px 8px var(--clr-primary-2);
 }
 /* ====== Global format ======*/
 * {
@@ -87,7 +86,7 @@ nav {
 }
 
 .nav-logo {
-    flex: 2;
+    flex: 3;
     color: var(--clr-primary-3);
     opacity: 1;
 }
@@ -99,7 +98,7 @@ nav {
 }
 
 .nav-links {
-    flex: 1;
+    flex: 2;
 }
 .nav-links ul {
     display: grid;
@@ -113,6 +112,16 @@ nav {
     position: relative;
     text-align: center;
 }
+
+.nav-links a {
+    transition: var(--transition);
+
+}
+.nav-links a:hover {
+    color: var(--clr-primary-3);
+    text-shadow: 1px 1px 10px var(--clr-primary-3);
+}
+
 .nav-links-bg {
     height: 50px;
     position: absolute;
@@ -197,6 +206,17 @@ nav {
     font-weight: 600;
     height: 80%;
     width: 50%;
+    border: none;
+    background: var(--clr-primary-4);
+    color: var(--clr-primary-1);
+    border-radius: 50px;
+    box-shadow: var(--light-shadow);
+    transition: var(--transition);
+}
+
+.f-s-d-button button:hover {
+    background: var(--clr-primary-1);
+    color: var(--clr-primary-4);
 }
 
 /* gallery section */
@@ -306,5 +326,14 @@ nav {
     list-style:  none;
 }
 
+.c-i-cta a {
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--clr-primary-4);
+}
 
+.c-i-cta a:hover {
+    color: var(--clr-primary-3);
+
+}
 
