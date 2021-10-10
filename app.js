@@ -28,7 +28,7 @@ getSomeFactsBtn.addEventListener("click", () => {
 // ======= function ========
 function renderGetSomeFactsText(text) {
   getSomeFactsText.innerHTML = `
-  <p>"${text}"</p>
+  <i>"${text}"</i>
    `;
 }
 
