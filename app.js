@@ -2,14 +2,17 @@
 const navbar = document.querySelector("nav");
 const getSomeFactsText = document.querySelector(".f-s-d-text");
 const getSomeFactsImg = document.querySelector(".facts-sec-img-container img");
-const getCatGalleryTitle = document.querySelector(".c-g-c-title");
 const getSomeFactsBtn = document.querySelector(".f-s-d-button");
+const getCatGalleryTitle = document.querySelector(".c-g-c-title");
+const getCatGalleryImgs = document.querySelector(".c-g-c-imgs");
+
+let responseFactsText = "";
 
 // ======= event listener ========
 document.addEventListener("DOMContentLoaded", () => {
-  getSomeFactsSec();
-  getSomeFactsPic();
-  getGallerySecQuotes();
+  apiCallFactsText(renderGetSomeFactsText);
+  apiCallFactsText(renderGalleryQuoteText);
+  apiCallCatGifs(renderGetSomeFactsGif);
 });
 
 window.addEventListener("scroll", () => {
@@ -21,8 +24,8 @@ window.addEventListener("scroll", () => {
 });
 
 getSomeFactsBtn.addEventListener("click", () => {
-  getSomeFactsSec();
-  getSomeFactsPic();
+  apiCallFactsText(renderGetSomeFactsText);
+  apiCallCatGifs(renderGetSomeFactsGif);
   onclickIncreaseBtnSize(getSomeFactsBtn, "f-s-d-button-onclick");
 });
 // ======= function ========
@@ -39,6 +42,36 @@ function renderGalleryQuoteText(text) {
   `;
 }
 
+function renderGalleryPic(arr) {
+  getCatGalleryImgs.innerHTML = `
+                            <div class="c-g-c-img-container">
+                                <img src="./img/g1.jpg" />
+                            </div>
+                            <div class="c-g-c-img-container">
+                                <img src="./img/g2.jpg" />
+                            </div>
+                            <div class="c-g-c-img-container">
+                                <img src="./img/g3.jpg" />
+                            </div>
+                            <div class="c-g-c-img-container">
+                                <img src="./img/g4.jpg" />
+                            </div>
+                            <div class="c-g-c-img-container">
+                                <img src="./img/g5.jpg" />
+                            </div>
+                            <div class="c-g-c-img-container">
+                                <img src="./img/g6.jpg" />
+                            </div>
+                            <div class="c-g-c-img-container">
+                                <img src="./img/g7.jpg" />
+                            </div>
+  `;
+}
+
+function renderGetSomeFactsGif(url) {
+  getSomeFactsImg.src = `https://cataas.com/cat/${url}`;
+}
+
 function onclickIncreaseBtnSize(btn, styleType) {
   btn.classList.add(styleType);
   setTimeout(() => {
@@ -46,15 +79,15 @@ function onclickIncreaseBtnSize(btn, styleType) {
   }, 50);
 }
 
-// ======= object ========
+// ======= JSON object ========
 
 // ======= api call ========
-function getSomeFactsSec() {
+function apiCallFactsText(callback) {
   const xhttp = new XMLHttpRequest();
-
   xhttp.onload = function () {
     let response = JSON.parse(this.responseText);
-    renderGetSomeFactsText(response.text);
+    responseFactsText = response.text;
+    callback(responseFactsText);
   };
   xhttp.open(
     "GET",
@@ -64,28 +97,26 @@ function getSomeFactsSec() {
   xhttp.send();
 }
 
-function getSomeFactsPic() {
+function apiCallCatGifs(callback) {
   const xhttp = new XMLHttpRequest();
-  xhttp.onload = function () {
-    let response = JSON.parse(this.response);
-    let url = `https://cataas.com${response.url}`;
-    getSomeFactsImg.src = url;
-  };
-  xhttp.open("GET", "https://cataas.com/cat?json=true");
-  xhttp.send();
-}
-
-function getGallerySecQuotes() {
-  const xhttp = new XMLHttpRequest();
-
   xhttp.onload = function () {
     let response = JSON.parse(this.responseText);
-    renderGalleryQuoteText(response.text);
+    let random = Math.floor(Math.random() * response.length);
+    console.log(response[random].id);
+    callback(response[random].id);
   };
-  xhttp.open(
-    "GET",
-    "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1",
-    true
-  );
+  xhttp.open("GET", "https://cataas.com/api/cats?tags=gif");
   xhttp.send();
 }
+
+// function apiCallGalleryImgs() {
+//   const xhttp = new XMLHttpRequest();
+//   xhttp.onload = function () {
+//     let response = JSON.parse(this.response);
+//     console.log(response);
+//   };
+//   xhttp.open("GET", "https://cataas.com/api/cats?&limit=10");
+//   xhttp.send();
+// }
+
+// apiCallGalleryImgs();

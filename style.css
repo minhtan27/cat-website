@@ -219,7 +219,7 @@ nav {
 .facts-sec-img-container img{
     height: 100%;
     width: 100%;
-    object-fit:contain;
+    object-fit: cover;
 }
 .facts-sec-description {
     display: flex;
@@ -265,40 +265,62 @@ nav {
 /* gallery section */
 #gallery-sec {
     margin: 0px auto 150px auto;
-    width: 90vw;
+    width: 95vw;
     text-align: center;
 }
 
 .c-g-c-imgs {
-    width: 100%;
+    width: 90%;
     margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 50px;
-    row-gap: 60px;
+    grid-template-rows: repeat(5, 400px);
+    column-gap: 20px;
+    row-gap: 20px;
 }
 
 .c-g-c-img-container {
-    text-align: left;
-    height: 400px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10%;
-    overflow: hidden;
-}
-
-.c-g-c-img-container img{
-    flex:9;
     height: 100%;
-    width: 100%;
-    object-fit: cover;
+    box-shadow: 5px 5px 20px grey;
+    position: relative;
+    overflow: hidden;
+    
 }
 
-.c-g-c-img-container p {
-    font-weight: 600;
-    flex: 1;
-    margin-bottom: 10px;
+.c-g-c-img-container:nth-child(2) {
+    grid-column: 2/3;
+    grid-row: 1 / span 2;
+}
+.c-g-c-img-container:nth-child(3) {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+     filter: grayscale(100%);
+}
+.c-g-c-img-container:nth-child(4) {
+    grid-column: 1/2;
+    grid-row: 2 / span 2;   
+     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+     filter: grayscale(100%);
+}
+.c-g-c-img-container:nth-child(6) {
+    grid-column: 3/4;
+    grid-row: 2 / span 2;
+}
+.c-g-c-img-container:nth-child(7) {
+    grid-column: 1/ span 3;
+     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+     filter: grayscale(100%);
+}
+
+.c-g-c-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+      transition: var(--transition);
+}
+.c-g-c-img-container img:hover {
+    transform: scale(1.2, 1.2) ;
 }
 
 /* about me section */
@@ -336,8 +358,9 @@ nav {
 }
 
 .am-s-img-container { 
-     border-radius: 10%;
+    border-radius: 10%;
     overflow: hidden;
+  
 }
 .am-s-img-container img {
     height: 100%;
@@ -381,7 +404,6 @@ nav {
     column-gap: 20px;
     row-gap: 20px;
     list-style: none;
-   
 }
 
 .c-i-text li {
