@@ -146,10 +146,11 @@ nav {
 /* introduciton section */
 #intro-sec {
     margin: 125px auto 150px auto;
-    height: 600px;
+    height: 800px;
     width: 95vw;
     background-image: url(./img/intro-bg.png);
     background-size: cover;
+    background-position: 50%, 50%;
     box-shadow: var(--dark-shadow);
     display: flex;
     align-items: center;
@@ -308,8 +309,7 @@ nav {
 }
 .c-g-c-img-container:nth-child(7) {
     grid-column: 1/ span 3;
-     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-     filter: grayscale(100%);
+    grid-row: 4/ span 2;
 }
 
 .c-g-c-img-container img {
@@ -325,22 +325,22 @@ nav {
 
 /* about me section */
 #aboutme-sec {
-    background: var(--clr-primary-1);
-    color: var(--clr-primary-4);
-    display: flex;
+    background: var(--clr-primary-4);
+    color: var(--clr-primary-1);
     width: 100vw;
     height: 650px;
     margin-bottom: 150px;
+  
 }
 
 .aboutme-sec-container {
     margin: auto;
-    height: 80%;
-    width: 90vw;
+    padding: 50px;
+    height: 100%;
+    width: 95vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 50px; 
-
 }
 
 .am-s-description {
@@ -360,6 +360,8 @@ nav {
 .am-s-img-container { 
     border-radius: 10%;
     overflow: hidden;
+    background: var(--clr-primary-4);
+    box-shadow: var(--light-shadow);
   
 }
 .am-s-img-container img {
@@ -370,23 +372,17 @@ nav {
 
 /* contact sec */
 #contact-sec {
-    height: 650px;
-    width: 100vw;
-    margin-bottom: 100px;
+    margin: 0px auto 100px auto;
+    width: 95vw;
     background: var(--clr-primary-4);
     color: var(--clr-primary-1);
 }
 
 
-.contact-container, .c-img-container {
-  height: 500px; 
+.contact-container{
+    height: auto;
     width: 100%;
-}
-
-.c-img-container img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover;
+    text-align: center;
 }
 
 .c-infor {
@@ -400,14 +396,13 @@ nav {
 
 .c-i-text ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
+    grid-template-columns: repeat(auto-fill, 350px);
     column-gap: 20px;
     row-gap: 20px;
     list-style: none;
 }
 
 .c-i-text li {
-    padding: 10px;
     text-overflow: wrap;
 }
 
