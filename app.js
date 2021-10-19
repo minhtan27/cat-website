@@ -1,14 +1,23 @@
 // ======= varible declaration ========
-const navbar = document.querySelector("nav");
+// global
+
+// nav bar
+const navbar = document.querySelector(".navbar");
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+const navLinksContainer = document.querySelector(".nav-links-container");
+
+// get some fact section
 const getSomeFactsText = document.querySelector(".f-s-d-text");
 const getSomeFactsImg = document.querySelector(".facts-sec-img-container img");
 const getSomeFactsBtn = document.querySelector(".f-s-d-button");
+
+// cat gallery section
 const getCatGalleryTitle = document.querySelector(".c-g-c-title");
 const getCatGalleryImgs = document.querySelectorAll(".gallery-img");
 
-let responseFactsText = "";
-
 // ======= event listener ========
+// global
 document.addEventListener("DOMContentLoaded", () => {
   apiCallFactsText(renderGetSomeFactsText);
   apiCallFactsText(renderGalleryQuoteText);
@@ -16,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   apiCallGalleryImgs();
 });
 
+// navbar
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > 20) {
     navbar.classList.add("nav-display");
@@ -24,25 +34,35 @@ window.addEventListener("scroll", () => {
   }
 });
 
+navToggle.addEventListener("click", () => {
+  if (navLinksContainer.getBoundingClientRect().height > 0) {
+    navLinksContainer.style.height = 0;
+    navbar.classList.remove("navbar-toggle");
+  } else {
+    displayLinks();
+    navbar.classList.add("navbar-toggle");
+  }
+});
+
+// get some fact section
 getSomeFactsBtn.addEventListener("click", () => {
   apiCallFactsText(renderGetSomeFactsText);
   apiCallCatGifs(renderGetSomeFactsGif);
   onclickIncreaseBtnSize(getSomeFactsBtn, "f-s-d-button-onclick");
 });
 // ======= function ========
+
+// nav bar
+function displayLinks() {
+  let linksHeight = navLinks.getBoundingClientRect().height;
+  navLinksContainer.style.height = `${linksHeight}px`;
+}
+// get some fact section
 function renderGetSomeFactsText(text) {
   getSomeFactsText.innerHTML = `
   <i>"${text}"</i>
    `;
 }
-
-function renderGalleryQuoteText(text) {
-  getCatGalleryTitle.innerHTML = `
-    <h2>exploring more cat pics</h2>
-    <p><i>" ${text}"</i></p>
-  `;
-}
-
 function renderGetSomeFactsGif(url) {
   getSomeFactsImg.src = `https://cataas.com/cat/${url}`;
 }
@@ -54,21 +74,23 @@ function onclickIncreaseBtnSize(btn, styleType) {
   }, 50);
 }
 
-// ======= JSON object ========
+// gallery section
+function renderGalleryQuoteText(text) {
+  getCatGalleryTitle.innerHTML = `
+    <h2>exploring more cat pics</h2>
+    <p><i>" ${text}"</i></p>
+  `;
+}
 
 // ======= api call ========
 function apiCallFactsText(callback) {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     let response = JSON.parse(this.responseText);
-    responseFactsText = response.text;
+    let responseFactsText = response.fact;
     callback(responseFactsText);
   };
-  xhttp.open(
-    "GET",
-    "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1",
-    true
-  );
+  xhttp.open("GET", "https://catfact.ninja/fact", true);
   xhttp.send();
 }
 
